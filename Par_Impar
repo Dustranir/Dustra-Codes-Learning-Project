@@ -1,0 +1,33 @@
+import random
+def par_impar():
+  print("Esse é meu jogo de par ou ímpar e voce jogará contra o acaso. Irá querer par ou ímpar?")
+  options = ['par', 'ímpar']
+  player_choice = input().lower()
+  print("Eu escolho " + player_choice)
+  while player_choice not in options:
+    print("Escolha inválida, tente novamente") 
+    player_choice = input()
+    print(player_choice)
+  x = 0
+  y = 10
+  numbers = list(range(x, y+1))
+  print("escolha um número: " + str(numbers))
+  player_number = int(input())
+  if player_number % 2 ==0: #se o resto da divisão por 2 for igual a 1, então é ímpar
+    print("voce escolheu um número par ".title())
+  else:
+    print("voce escolheu um número ímpar ".title())
+  computer_number = random.choice(numbers)
+  print("O computador escolheu " + str(computer_number))
+  ganhador(player_choice, player_number, computer_number) 
+
+def ganhador(choice, p1_number, p2_number):
+  
+  if choice == "par" and (p1_number + p2_number) % 2 ==0:
+    print("Voce ganhou!")
+  elif choice == "ímpar" and (p1_number + p2_number) % 2 != 0:
+    print("Voce ganhou!")
+  else:
+    print("Voce perdeu.")
+
+par_impar()
